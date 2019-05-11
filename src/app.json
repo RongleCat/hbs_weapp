@@ -1,86 +1,90 @@
 {
-  "pages": [
-    "pages/index/main",
-    "pages/my/main",
-    "pages/login/main",
-    "pages/inquiry/main"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#00d164",
-    "navigationBarTitleText": "心学共育",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#00d164",
-    "backgroundColorBottom": "#f5f5f5",
-    "backgroundColorTop": "#00d164"
-  },
-  "tabBar": {
-    "color": "#999",
-    "backgroundColor": "#fff",
-    "selectedColor": "#333",
-    "borderStyle": "black",
-    "list": [{
-        "text": "首页",
-        "pagePath": "pages/index/main",
-        "iconPath": "static/tabs/1.png",
-        "selectedIconPath": "static/tabs/1_active.png"
-      },
-      {
-        "text": "咨询",
-        "pagePath": "pages/inquiry/main",
-        "iconPath": "static/tabs/2.png",
-        "selectedIconPath": "static/tabs/2_active.png"
-      },
-      {
-        "text": "学学",
-        "pagePath": "pages/index/main",
-        "iconPath": "static/tabs/3.png",
-        "selectedIconPath": "static/tabs/3_active.png"
-      },
-      {
-        "text": "问答",
-        "pagePath": "pages/my/main",
-        "iconPath": "static/tabs/4.png",
-        "selectedIconPath": "static/tabs/4_active.png"
-      },
-      {
-        "text": "我的",
-        "pagePath": "pages/my/main",
-        "iconPath": "static/tabs/5.png",
-        "selectedIconPath": "static/tabs/5_active.png"
-      }
-    ],
-    "items": [{
-        "text": "首页",
-        "pagePath": "pages/index/main",
-        "iconPath": "static/tabs/1.png",
-        "selectedIconPath": "static/tabs/1_active.png"
-      },
-      {
-        "text": "咨询",
-        "pagePath": "pages/inquiry/main",
-        "iconPath": "static/tabs/2.png",
-        "selectedIconPath": "static/tabs/2_active.png"
-      },
-      {
-        "text": "学学",
-        "pagePath": "pages/index/main",
-        "iconPath": "static/tabs/3.png",
-        "selectedIconPath": "static/tabs/3_active.png"
-      },
-      {
-        "text": "问答",
-        "pagePath": "pages/my/main",
-        "iconPath": "static/tabs/4.png",
-        "selectedIconPath": "static/tabs/4_active.png"
-      },
-      {
-        "text": "我的",
-        "pagePath": "pages/index/main",
-        "iconPath": "static/tabs/5.png",
-        "selectedIconPath": "static/tabs/5_active.png"
-      }
-    ],
-    "position": "bottom"
-  }
+	"pages": [
+		"pages/index/main",
+		"pages/my/main",
+		"pages/login/main",
+		"pages/inquiry/main",
+		"pages/study/main",
+		"pages/ask/main"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#00d164",
+		"navigationBarTitleText": "心学共育",
+		"navigationBarTextStyle": "white",
+		"backgroundColor": "#00d164",
+		"backgroundColorBottom": "#f5f5f5",
+		"backgroundColorTop": "#00d164"
+	},
+	"tabBar": {
+		"color": "#999",
+		"backgroundColor": "#fff",
+		"selectedColor": "#333",
+		"borderStyle": "black",
+		"list": [
+			{
+				"text": "首页",
+				"pagePath": "pages/index/main",
+				"iconPath": "static/tabs/1.png",
+				"selectedIconPath": "static/tabs/1_active.png"
+			},
+			{
+				"text": "咨询",
+				"pagePath": "pages/inquiry/main",
+				"iconPath": "static/tabs/2.png",
+				"selectedIconPath": "static/tabs/2_active.png"
+			},
+			{
+				"text": "学学",
+				"pagePath": "pages/study/main",
+				"iconPath": "static/tabs/3.png",
+				"selectedIconPath": "static/tabs/3_active.png"
+			},
+			{
+				"text": "问答",
+				"pagePath": "pages/ask/main",
+				"iconPath": "static/tabs/4.png",
+				"selectedIconPath": "static/tabs/4_active.png"
+			},
+			{
+				"text": "我的",
+				"pagePath": "pages/my/main",
+				"iconPath": "static/tabs/5.png",
+				"selectedIconPath": "static/tabs/5_active.png"
+			}
+		],
+		"items": [
+			{
+				"text": "首页",
+				"pagePath": "pages/index/main",
+				"iconPath": "static/tabs/1.png",
+				"selectedIconPath": "static/tabs/1_active.png"
+			},
+			{
+				"text": "咨询",
+				"pagePath": "pages/inquiry/main",
+				"iconPath": "static/tabs/2.png",
+				"selectedIconPath": "static/tabs/2_active.png"
+			},
+			{
+				"text": "学学",
+				"pagePath": "pages/study/main",
+				"iconPath": "static/tabs/3.png",
+				"selectedIconPath": "static/tabs/3_active.png"
+			},
+			{
+				"text": "问答",
+				"pagePath": "pages/ask/main",
+				"iconPath": "static/tabs/4.png",
+				"selectedIconPath": "static/tabs/4_active.png"
+			},
+			{
+				"text": "我的",
+				"pagePath": "pages/my/main",
+				"iconPath": "static/tabs/5.png",
+				"selectedIconPath": "static/tabs/5_active.png"
+			}
+		],
+		"position": "bottom"
+	}
 }
