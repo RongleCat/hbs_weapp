@@ -31,6 +31,9 @@ Vue.mixin({
       wx.navigateTo({
         url: allUrl
       })
+    },
+    imgUrl(url) {
+      return 'http://192.168.3.5/project/xxgy' + url
     }
   }
 })

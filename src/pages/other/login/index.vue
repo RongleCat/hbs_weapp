@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import md5 from '../../utils/md5.js'
+import md5 from '../../../utils/md5.js'
 export default {
   data() {
     return {
@@ -315,7 +315,7 @@ export default {
               align-items: center;
               justify-content: flex-end;
               font-size: 28rpx;
-              color: #00d164;
+              color: $main;
             }
             input {
               flex: 1;

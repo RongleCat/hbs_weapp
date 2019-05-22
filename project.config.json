@@ -33,13 +33,103 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 13,
 			"list": [
 				{
 					"id": 0,
 					"name": "登录注册页",
 					"pathName": "pages/login/main",
 					"query": "state=1",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "咨询",
+					"pathName": "pages/inquiry/index/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "心里学学",
+					"pathName": "pages/study/index/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "问答",
+					"pathName": "pages/ask/index/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "我的",
+					"pathName": "pages/my/index/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "个人资料",
+					"pathName": "pages/my/personal/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息中心",
+					"pathName": "pages/msg/index/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "消息列表",
+					"pathName": "pages/msg/list/main",
+					"query": "type=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息详情",
+					"pathName": "pages/msg/detail/main",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动列表",
+					"pathName": "pages/activity/index/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "活动详情",
+					"pathName": "pages/activity/detail/main",
+					"query": "type=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "推荐阅读",
+					"pathName": "pages/study/article/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "音频课程列表",
+					"pathName": "pages/study/audio/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "音频课程详情",
+					"pathName": "pages/study/audio_detail/main",
 					"scene": null
 				}
 			]

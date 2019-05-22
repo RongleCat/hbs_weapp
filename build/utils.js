@@ -6,14 +6,14 @@ var mpvueInfo = require('../node_modules/mpvue/package.json')
 var packageInfo = require('../package.json')
 var mkdirp = require('mkdirp')
 
-exports.assetsPath = function (_path) {
-  var assetsSubDirectory = process.env.NODE_ENV === 'production'
-    ? config.build.assetsSubDirectory
-    : config.dev.assetsSubDirectory
+exports.assetsPath = function(_path) {
+  var assetsSubDirectory = process.env.NODE_ENV === 'production' ?
+    config.build.assetsSubDirectory :
+    config.dev.assetsSubDirectory
   return path.posix.join(assetsSubDirectory, _path)
 }
 
-exports.cssLoaders = function (options) {
+exports.cssLoaders = function(options) {
   options = options || {}
 
   var cssLoader = {
@@ -40,7 +40,7 @@ exports.cssLoaders = function (options) {
   }
 
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
+  function generateLoaders(loader, loaderOptions) {
     var loaders = [cssLoader, px2rpxLoader, postcssLoader]
     if (loader) {
       loaders.push({
@@ -71,13 +71,19 @@ exports.cssLoaders = function (options) {
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
+    scss: generateLoaders('sass').concat({
+      loader: 'sass-resources-loader',
+      options: {
+        resources: path.resolve(__dirname, '../src/assets/public.scss') // 此路径就是你定义全局scss变量的路径，可随你自己的更改
+      }
+    }),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }
 }
 
 // Generate loaders for standalone style files (outside of .vue)
-exports.styleLoaders = function (options) {
+exports.styleLoaders = function(options) {
   var output = []
   var loaders = exports.cssLoaders(options)
   for (var extension in loaders) {
@@ -90,7 +96,7 @@ exports.styleLoaders = function (options) {
   return output
 }
 
-const writeFile = async (filePath, content) => {
+const writeFile = async(filePath, content) => {
   let dir = path.dirname(filePath)
   let exist = fs.existsSync(dir)
   if (!exist) {
@@ -99,7 +105,7 @@ const writeFile = async (filePath, content) => {
   await fs.writeFileSync(filePath, content, 'utf8')
 }
 
-exports.writeFrameworkinfo = function () {
+exports.writeFrameworkinfo = function() {
   var buildInfo = {
     'toolName': mpvueInfo.name,
     'toolFrameWorkVersion': mpvueInfo.version,

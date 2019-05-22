@@ -1,0 +1,41 @@
+$main:#00d164;
+$mainBg:#ebfbf0;
+$bc:#e5e5e5;
+$bg:#f5f5f5;
+$t3:#333;
+$t9:#999;
+$nbg:#00c862;
+@mixin tapColor {
+  &:active {
+    filter: brightness(0.95) contrast(100%);
+  }
+}
+
+@mixin tapMask {
+  position: relative;
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0;
+    z-index: 10;
+  }
+  &:active {
+    &:after {
+      opacity: .05;
+    }
+  }
+}
+
+@mixin textof {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

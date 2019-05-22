@@ -1,11 +1,15 @@
 <template>
   <div class="page-container">
+    <div class="float-btn-ask">
+      <div class="iconfont icon-edit"></div>
+      提问
+    </div>
     <div class="swiper-container">
       <swiper :indicator-dots="false" :autoplay="true" :interval="5000"
         :duration="500" :circular="true" class="index-swiper" @change="swiperChange">
         <block v-for="(i,index) in imgUrls" :key="index">
           <swiper-item class="swiper-item">
-            <image :src="i" class="slide-image" mode="center" />
+            <image :src="i.pic" class="slide-image" mode="aspectFill" />
           </swiper-item>
         </block>
       </swiper>
@@ -16,29 +20,29 @@
     </div>
     <div class="other-content">
       <div class="main-btn-box">
-        <div class="item">
+        <div class="item" @tap="sTo('/study/index')">
           <image src="/static/images/index/index_icon_1.png" mode="aspectFill" />
-          <span>学学</span>
+          学学
         </div>
-        <div class="item">
+        <div class="item" @tap="nTo('/activity/index')">
           <image src="/static/images/index/index_icon_2.png" mode="aspectFill" />
-          <span>活动</span>
+          活动
         </div>
-        <div class="item" @tap="sTo('/my')">
+        <div class="item" @tap="sTo('/my/index')">
           <image src="/static/images/index/index_icon_3.png" mode="aspectFill" />
-          <span>我的</span>
+          我的
         </div>
-        <div class="item">
+        <div class="item" @tap="nTo('/msg/index')">
           <image src="/static/images/index/index_icon_4.png" mode="aspectFill" />
-          <span>通知</span>
+          通知<span v-if="msgCount">{{msgCount}}</span>
         </div>
       </div>
-      <div class="common-block server-box">
+      <div class="common-block server-box mt-25">
         <div class="common-title">
           我们的服务
         </div>
         <div class="content">
-          <div class="left">
+          <div class="left" @tap="sTo('/inquiry/index')">
             <image src="/static/images/index/index_server_1.png" />
             <div class="s-title">直接咨询</div>
             <p>免费提问 专业解答</p>
@@ -66,132 +70,78 @@
           </div>
         </div>
       </div>
-      <div class="common-block qa-box">
-        <div class="common-title">
+      <div class="common-block qa-box mt-25">
+        <div class="common-title tap-mask" @tap="sTo('/ask/index')">
           问答广场
           <div class="btn-text-more">更多></div>
         </div>
         <div class="content">
-          <div class="item">
+          <div class="item" v-for="(i,index) in problemList" :key="index">
             <div class="user-info">
-              <image src="/static/images/default_head.jpg" mode="aspectFill" />
+              <!-- <image :src="imgUrl(i.headimgurl)" mode="aspectFill" /> -->
+              <div class="head-box">
+                <imageFormat :src="i.headimgurl" :radius="true" />
+              </div>
               <div class="info">
-                <div class="username">曹铁柱</div>
+                <div class="username">{{i.realname}}</div>
                 <div class="taglist">
-                  <div class="c-tag">孩子心理</div>
+                  <div class="c-tag">{{i.type_name}}</div>
                 </div>
               </div>
             </div>
             <div class="ask-content">
-              男孩子从五年级开始爱上手机游戏上瘾，脾气越来越暴躁，越来越厌学，手机不给玩就不想去上学男孩子从五年级开始爱上手机游戏上瘾，脾气越来越暴躁，越来越厌学，手机不给玩就不想去上学
+              {{i.content}}
             </div>
             <div class="item-info">
               <div class="left">
                 <span class="iconfont icon-see"></span>
-                18
+                {{i.clickdot}}
                 <span class="iconfont icon-msg"></span>
-                18
+                {{i.answer_num}}
               </div>
               <div class="right">
-                2018-09-11
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="user-info">
-              <image src="/static/images/default_head.jpg" mode="aspectFill" />
-              <div class="info">
-                <div class="username">曹铁柱</div>
-                <div class="taglist">
-                  <div class="c-tag">孩子心理</div>
-                </div>
-              </div>
-            </div>
-            <div class="ask-content">
-              男孩子从五年级开始爱上手机游戏上瘾，脾气越来越暴躁，越来越厌学，手机不给玩就不想去上学男孩子从五年级开始爱上手机游戏上瘾，脾气越来越暴躁，越来越厌学，手机不给玩就不想去上学
-            </div>
-            <div class="item-info">
-              <div class="left">
-                <span class="iconfont icon-see"></span>
-                18
-                <span class="iconfont icon-msg"></span>
-                18
-              </div>
-              <div class="right">
-                2018-09-11
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="user-info">
-              <image src="/static/images/default_head.jpg" mode="aspectFill" />
-              <div class="info">
-                <div class="username">曹铁柱</div>
-                <div class="taglist">
-                  <div class="c-tag">孩子心理</div>
-                </div>
-              </div>
-            </div>
-            <div class="ask-content">
-              男孩子从五年级开始爱上手机游戏上瘾，脾气越来越暴躁，越来越厌学，手机不给玩就不想去上学男孩子从五年级开始爱上手机游戏上瘾，脾气越来越暴躁，越来越厌学，手机不给玩就不想去上学
-            </div>
-            <div class="item-info">
-              <div class="left">
-                <span class="iconfont icon-see"></span>
-                18
-                <span class="iconfont icon-msg"></span>
-                18
-              </div>
-              <div class="right">
-                2018-09-11
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="user-info">
-              <image src="/static/images/default_head.jpg" mode="aspectFill" />
-              <div class="info">
-                <div class="username">曹铁柱</div>
-                <div class="taglist">
-                  <div class="c-tag">孩子心理</div>
-                </div>
-              </div>
-            </div>
-            <div class="ask-content">
-              男孩子从五年级开始爱上手机游戏上瘾，脾气越来越暴躁，越来越厌学，手机不给玩就不想去上学男孩子从五年级开始爱上手机游戏上瘾，脾气越来越暴躁，越来越厌学，手机不给玩就不想去上学
-            </div>
-            <div class="item-info">
-              <div class="left">
-                <span class="iconfont icon-see"></span>
-                18
-                <span class="iconfont icon-msg"></span>
-                18
-              </div>
-              <div class="right">
-                2018-09-11
+                {{i.addtime}}
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="float-btn-ask">
-      <div class="iconfont icon-edit"></div>
-      提问
-    </div>
+
   </div>
 </template>
 
 <script>
+import imageFormat from '@/components/image.vue'
 export default {
   data() {
     return {
-      imgUrls: [
-        'https://hbs-static.oss-cn-hangzhou.aliyuncs.com/images/swiper/1.jpg',
-        'https://hbs-static.oss-cn-hangzhou.aliyuncs.com/images/swiper/2.jpg',
-        'https://hbs-static.oss-cn-hangzhou.aliyuncs.com/images/swiper/3.jpg'
-      ],
-      current: 0
+      imgUrls: [],
+      current: 0,
+      problemList: [],
+      msgCount:8
+    }
+  },
+  components: {
+    imageFormat
+  },
+  async onLoad() {
+    let that = this
+    let res = await that.$fly.request({
+      method: 'post',
+      url: '/api',
+      body: {
+        api_name: 'xxgy.Index.index'
+      }
+    })
+    if (res) {
+      that.imgUrls = res.cust_flash_list
+      that.problemList = res.problem_list
+      wx.setNavigationBarTitle({
+        title: res.head_title
+      })
+    } else {
+      console.log('错误')
     }
   },
   methods: {
@@ -206,7 +156,7 @@ export default {
 .page-container {
   min-height: 100vh;
   background-color: #f5f5f5;
-  background-image: linear-gradient(to bottom, #00d164, #00d164);
+  background-image: linear-gradient(to bottom, $main, $main);
   background-repeat: no-repeat;
   background-size: 100% 170rpx;
   background-position: top center;
@@ -231,7 +181,7 @@ export default {
       margin: 0 5rpx;
       transition: all 0.2s;
       &.current-active {
-        background: #00d164;
+        background: $main;
         width: 20rpx;
       }
     }
@@ -252,6 +202,7 @@ export default {
 
 .other-content {
   padding: 0 25rpx;
+  position: relative;
 }
 
 .main-btn-box {
@@ -264,10 +215,26 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @include tapColor;
+    color: #999;
+    font-size: 24rpx;
+    line-height: 56rpx;
+    position: relative;
     span {
-      color: #999;
-      font-size: 24rpx;
-      line-height: 56rpx;
+      display: block;
+      width: 36rpx;
+      height: 36rpx;
+      background: #f02c1f;
+      border: 2rpx solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: -18rpx;
+      right: 18rpx;
+      box-shadow: 0 0 10rpx rgba(#000,.2);
     }
     image {
       width: 100rpx;
@@ -276,26 +243,11 @@ export default {
   }
 }
 
-.common-block {
-  background: #fff;
-  border-radius: 20rpx;
-  margin-top: 30rpx;
-  .common-title {
-    line-height: 100rpx;
-    padding: 0 30rpx;
-    font-size: 28rpx;
-    color: #333;
-    border-bottom: 1rpx solid #e5e5e5;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-
 .server-box {
   .content {
     display: flex;
     .left {
+      @include tapMask;
       width: 350rpx;
       padding: 18rpx 50rpx 30rpx 50rpx;
       border-right: 1rpx solid #e5e5e5;
@@ -310,11 +262,13 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 35rpx 30rpx 35rpx 25rpx;
       .item {
+        @include tapMask;
+        flex: 1;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 0 25rpx;
         .img {
           width: 80rpx;
           display: flex;
@@ -324,6 +278,9 @@ export default {
             width: 80rpx;
             height: 92rpx;
           }
+        }
+        &:last-child {
+          border-top: 1rpx solid $bc;
         }
       }
     }
@@ -343,24 +300,26 @@ export default {
     }
   }
 }
+
 .qa-box {
-  .btn-text-more {
-    font-size: 22rpx;
-    color: #999;
+  .common-title {
+    &:after {
+      border-radius: 20rpx 20rpx 0 0;
+    }
   }
   .content {
     .item {
       padding: 30rpx;
       border-bottom: 1rpx solid #e5e5e5;
+      @include tapMask;
       .user-info {
         display: flex;
         align-items: center;
         padding-bottom: 30rpx;
-        image {
+        .head-box {
           width: 70rpx;
           height: 70rpx;
           flex-shrink: 1;
-          border-radius: 50%;
         }
         .info {
           flex: 1;
@@ -399,26 +358,34 @@ export default {
       }
       &:last-child {
         border-bottom: 0;
+        &:after {
+          border-radius: 0 0 20rpx 20rpx;
+        }
       }
     }
   }
 }
+
 .float-btn-ask {
+  @include tapMask;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 60rpx;
   height: 80rpx;
-  border: 2rpx solid #00d164;
+  border: 2rpx solid $main;
   position: fixed;
   right: 0;
   bottom: 200rpx;
   border-right: 0;
-  color: #00d164;
+  color: $main;
   font-size: 20rpx;
   border-radius: 12rpx 0 0 12rpx;
   background: rgba(#fff, 0.5);
+  z-index: 100;
+
   .iconfont {
     font-size: 36rpx;
   }

@@ -1,7 +1,5 @@
 <script>
-export default {
-  
-}
+export default {}
 </script>
 
 <style lang="wxss">
@@ -63,6 +61,36 @@ web-view,
 ad {
   box-sizing: border-box;
 }
+</style>
+
+<style lang="scss">
+.c-tag {
+  display: inline-block;
+  color: $main;
+  background: $mainBg;
+  line-height: 1.5;
+  padding: 0 12rpx;
+  border-radius: 15rpx;
+  font-size: 22rpx;
+}
+.content-block {
+  width: 100%;
+  margin-bottom: 25rpx;
+  border-radius: 20rpx;
+  background: #fff;
+  overflow: hidden;
+  .head {
+    line-height: 100rpx;
+    padding-left: 30rpx;
+    font-size: 28rpx;
+    color: #333;
+    font-weight: bold;
+  }
+  .body {
+    padding: 30rpx;
+    padding-top: 0;
+  }
+}
 
 .common-btn {
   width: 100%;
@@ -71,18 +99,66 @@ ad {
   text-align: center;
   font-size: 30rpx;
   color: #fff;
-  background: rgb(0, 209, 101);
+  background: $main;
   border-radius: 10rpx;
   border: 0;
+  overflow: hidden;
+  @include tapMask;
+  &.radius {
+    border-radius: 44rpx;
+  }
 }
 
-.c-tag {
-  display: inline-block;
-  color: #00d164;
-  background: rgb(235, 251, 240);
-  line-height: 1.5;
-  padding: 0 12rpx;
-  border-radius: 15rpx;
-  font-size: 22rpx;
+.common-block {
+  background: #fff;
+  border-radius: 20rpx;
+  overflow: hidden;
+  &.mt-25 {
+    margin-top: 25rpx;
+  }
+  .common-title {
+    line-height: 100rpx;
+    padding: 0 30rpx;
+    font-size: 28rpx;
+    color: #333;
+    border-bottom: 1rpx solid $bc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .btn-text-more {
+      font-size: 22rpx;
+      color: #999;
+    }
+  }
+}
+
+.tap-mask {
+  overflow: hidden;
+  @include tapMask;
+}
+.ofh {
+  overflow: hidden;
+}
+.btn-ctrl {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 12rpx;
+  background-color: #ebfbf0;
+  background-repeat: no-repeat;
+  background-size: 36rpx;
+  background-position: center;
+  &.prev {
+    background-image: url('https://hbs-static.oss-cn-hangzhou.aliyuncs.com/images/icon/ctrl_icon_1.png');
+  }
+  &.next {
+    background-image: url('https://hbs-static.oss-cn-hangzhou.aliyuncs.com/images/icon/ctrl_icon_3.png');
+  }
+  &.play {
+    background-image: url('https://hbs-static.oss-cn-hangzhou.aliyuncs.com/images/icon/ctrl_icon_2.png');
+  }
+  &.stop {
+    background-image: url('https://hbs-static.oss-cn-hangzhou.aliyuncs.com/images/icon/ctrl_icon_4.png');
+  }
 }
 </style>
+
